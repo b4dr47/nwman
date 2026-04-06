@@ -1,0 +1,13 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1775473024714,
+      "tag": "0000_loud_prowler",
+      "breakpoints": true
+    }
+  ]
+}

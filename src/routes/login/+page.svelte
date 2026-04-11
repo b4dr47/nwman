@@ -1,13 +1,14 @@
 <script lang="ts">
   import { signIn } from '$lib/auth-client';
   import { goto } from '$app/navigation';
+  import { InputField } from '$lib';
 
   let email = $state('');
   let password = $state('');
   let error = $state('');
   let loading = $state(false);
 
-  async function handleLogin() {
+  async function Login() {
     loading = true;
     error = '';
     const { error: err } = await signIn.email({ email, password });
@@ -29,27 +30,20 @@
     {/if}
 
     <div class="space-y-4">
-      <div>
-        <label class="block text-sm font-medium text-gray-100 mb-1">Email
-        <input
-          type="email"
-          bind:value={email}
-          class="w-full border border-gray-300 rounded-lg px-3 py-2 text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          placeholder="you@example.com"
-        />
-        </label>
-      </div>
-      <div>
-        <label class="block text-sm font-medium text-gray-100 mb-1">Password
-        <input
-          type="password"
-          bind:value={password}
-          class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
-        </label>
-      </div>
+
+      <InputField
+        text="Email"
+        type="email"
+        bind:value={email}
+        placeholder="you@exmample.com"
+      ></InputField>
+      <InputField
+        text="password"
+        type="password"
+        bind:value={password}
+      ></InputField>
       <button
-        onclick={handleLogin}
+        onclick={Login}
         disabled={loading}
         class="w-full bg-blue-600 text-white py-2 rounded-lg font-medium hover:bg-blue-500 disabled:opacity-50 transition"
       >

@@ -1,7 +1,7 @@
 <script lang="ts">
   import { signUp } from '$lib/auth-client';
   import { goto } from '$app/navigation';
-
+  import { InputField } from '$lib';
   let name = $state('');
   let email = $state('');
   let password = $state('');
@@ -30,21 +30,23 @@
     {/if}
 
     <div class="space-y-4">
-      <div>
-        <label class="block text-sm font-medium text-gray-100 mb-1">Name
-        <input bind:value={name} class="w-full border border-gray-300 text-gray-200 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Your name" />
-        </label>
-      </div>
-      <div>
-        <label class="block text-sm font-medium text-gray-100 mb-1">Email
-        <input type="email" bind:value={email} class="w-full border border-gray-300 text-gray-200 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="you@example.com" />
-        </label>
-      </div>
-      <div>
-        <label class="block text-sm font-medium text-gray-100 mb-1">Password
-        <input type="password" bind:value={password} class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-        </label>
-      </div>
+      <InputField
+        text="Name"
+        bind:value={name}
+        placeholder="Your name"
+      ></InputField>
+      <InputField
+        text="Email"
+        bind:value={email}
+        type="email"
+        placeholder="you@example.com"
+      ></InputField>
+      <InputField
+        text="Password"
+        type="password"
+        bind:value={password}
+      ></InputField>
+
       <button
         onclick={handleRegister}
         disabled={loading}

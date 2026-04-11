@@ -1,7 +1,7 @@
 <script lang="ts">
   import { signUp } from '$lib/auth-client';
   import { goto } from '$app/navigation';
-  import { InputField } from '$lib';
+  import { InputField, Footer } from '$lib';
   let name = $state('');
   let email = $state('');
   let password = $state('');
@@ -55,9 +55,11 @@
         {loading ? 'Creating account…' : 'Create account'}
       </button>
     </div>
-
-    <p class="text-sm text-center text-gray-500">
-      Already have an account? <a href="/login" class="text-blue-500 hover:underline">Sign in</a>
-    </p>
+    
+    <Footer
+      text="Already have an account?"
+      link="/login"
+      action="Sign in"
+    ></Footer>
   </div>
 </div>

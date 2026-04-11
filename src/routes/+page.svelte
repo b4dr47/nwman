@@ -1,3 +1,7 @@
+<script>
+  import { Button } from '$lib';
+</script>
+
 <div class="min-h-screen flex items-center justify-center bg-gray-900">
   <div class="w-full max-w-md bg-gray-800 rounded-2xl shadow-lg p-10 space-y-8">
       <h1 class="text-2xl text-gray-300">

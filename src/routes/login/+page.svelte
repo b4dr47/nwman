@@ -1,7 +1,7 @@
 <script lang="ts">
   import { signIn } from '$lib/auth-client';
   import { goto } from '$app/navigation';
-  import { InputField } from '$lib';
+  import { InputField, Footer } from '$lib';
 
   let email = $state('');
   let password = $state('');
@@ -50,9 +50,10 @@
         {loading ? 'Signing in…' : 'Sign in'}
       </button>
     </div>
-
-    <p class="text-sm text-center text-gray-500">
-      No account? <a href="/register" class="text-blue-500 hover:underline">Register</a>
-    </p>
+    <Footer
+      text="No account?"
+      link="/register"
+      action="Register"
+    ></Footer>
   </div>
 </div>
